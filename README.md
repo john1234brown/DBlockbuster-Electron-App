@@ -15,7 +15,6 @@ This is a Electron Application Which utilizes Sqlite db to store paths of your m
 
 
 
-This utilizes a custom made version of cloudflared node module to be compatabile with electron applications!
-
-The original cloudflared node module that was modified can be found here!
+# This utilizes a custom made version of cloudflared node module to be compatabile with electron applications!
+- The original cloudflared node module that was modified can be found here!
 https://github.com/JacobLinCool/node-cloudflared
