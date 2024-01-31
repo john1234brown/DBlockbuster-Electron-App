@@ -1,0 +1,72 @@
+{
+  "name": "dblockbuster-file-provider-electron",
+  "version": "1.0.0",
+  "description": "P2P File Providers Electron Application For Movies and Tv Shows! Uses Peer Hosted Websocket Relay Servers along with DBlockbuster as a gateway for the moderation process!",
+  "main": "index.js",
+  "author": "John Brown",
+  "email": "john1234brown23@gmail.com",
+  "homepage": "https://github.com/john1234brown/DBlockbuster",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.3",
+    "better-sqlite3": "^9.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "getmac": "^6.6.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "ws": "^8.14.2"
+  },
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "install": "npm install express cors electron && npm run installtwo",
+    "installtwo": "npm install electron-builder --save-dev && npm run prebuild",
+    "prebuild": "sh prebuild.sh || cmd /c prebuild.bat",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "dblockbuster.com.file-provider-tool",
+    "extraFiles": [
+      "cloudflared/**/*",
+      "assets",
+      "fonts",
+      "gui",
+      "lib/**/*",
+      "preload.js",
+      "eula.json",
+      "eula_preload.js",
+      "database.sqlite3",
+      "config.json"
+    ],
+    "files": [
+      "node_modules/**/*",
+      "config/**/*",
+      "build/**/*",
+      "index.js",
+      "index2.js",
+      "package.json"
+    ],
+    "dmg": {
+      "icon": "build/Logo.png"
+    },
+    "linux": {
+      "category": "Usual Applications",
+      "maintainer": "Johnathan Brown",
+      "target": [
+        "AppImage"
+      ],
+      "icon": "build/Logo.png"
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^24.9.1"
+  }
+}
