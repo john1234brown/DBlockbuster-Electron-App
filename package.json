@@ -16,13 +16,13 @@
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
-    "smee-client": "^2.0.0",
     "ws": "^8.14.2"
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "install": "npm install express cors smee-client electron && npm run installtwo",
-    "installtwo": "npm install electron-builder --save-dev",
+    "install": "npm install express cors electron && npm run installtwo",
+    "installtwo": "npm install electron-builder --save-dev && npm run prebuild",
+    "prebuild": "sh prebuild.sh || cmd /c prebuild.bat",
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
