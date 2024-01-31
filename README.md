@@ -10,7 +10,8 @@ This is a Electron Application Which utilizes Sqlite db to store paths of your m
 - &season={number} if its tv show you can specify season
 - &episode={number} if its tv show you can specify episode to look for to play!
 
-## The video endpoint has the same request query parameters but you need to request this endpoint with headers that include range basically use this endpoint for if you have a website that has a video element in it then you would set its src to this video endpoint using the proper query parameters for that specific film!
+# The video endpointHas the same request query parameters
+- but you need to request this endpoint with headers that include range basically use this endpoint for if you have a website that has a video element in it then you would set its src to this video endpoint using the proper query parameters for that specific film!
 
 This utilizes a custom made version of cloudflared node module to be compatabile with electron applications!
 
