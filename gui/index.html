@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title> DBlockbuster File Provider Electron Application</title>
+  <link rel="icon" type="image/x-icon" href="assets/logos/TabLogo.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- KEEP THIS V so borders work properly on the Table! Under Search! --->
+  <!--<script src="jquery-3.6.3.min.js"></script>-->
+  <!-- <script type='text/javascript' src='knockout-3.5.1.js'></script> -->
+  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
+  <link href="./style.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="./styleanimation.css"> -->
+  <!--<script src="./renderer.js"></script>-->
+  <script src="./manage.js"></script>
+  <script src="./script.js"></script>
+  <!--<script src="./script2.js"></script>-->
+  <!--<script src="./electron.js"></script>-->
+</head>
+
+<body class="body">
+  <div id="logobutton" style="background-color: #363845;padding:12rem;padding-bottom:0rem;padding-top:0rem;">
+    <img id="logobutton" class="logoClass" src="assets/logos/StreamPalLogo.png" alt="Stream Pal Top Logo">
+  </div>
+  <!-- 
+     FAQ TAB BEGIN////////////////////////////////////////////////////
+    
+    -->
+
+
+
+
+
+  <!-- 
+     HOME TAB BEGIN////////////////////////////////////////////////////
+    
+    -->
+
+  <!--Beginning Of Home Tab --->
+  <!-- <div></div> -->
+  <!-- --->
+  <div id="tabs" class="mytabs">
+
+    <input type="radio" id="tabhome" name="mytabs" checked>
+    <label class="tagSelector" id="tabhomelabel" for="tabhome" onclick='window.api.refresh_status()'><b>Status</b></label>
+    <div class="tab">
+      <h2 class="mainTitle">Status</h2>
+      <div class="homeTop">
+        <h3 style="text-shadow: 2px black ; "> Instructions</h3>
+        <ul class="homeList" style="font-weight: 150; font-size: 125%;">
+          <li>
+            First if you havent already go and modify your Config.json file located in the root folder of this nodejs
+            application make sure to update with the root folder of your File Provider Folders
+          </li>
+          <li>
+            Second , Click on any Movie or Tv Show from the Search Tabs, Movies or TV Shows Tabs, This will help
+            Automatically Make the folders in your (File Provider Folders) in a format that you can just upload it to
+            ipfs and publish it this will give you a new link called a IPNS link please use this link and save it in a
+            txt file anywhere for now you will need it later VERY IMPORTANT!
+          </li>
+          <li>
+            Third, If what you generated was a movie then please put your video file for that movie inside the generated
+            folder under the proper Quality (hd, sd, cam) subfolder. The location of the folder generated will be
+            outputted
+            in the console tab! If its a tv show please make sure to put your video file in the proper season and
+            episode subfolders along with the proper Quality (hd, sd, cam) subfolders.
+
+          </li>
+          <li>
+            Fourth , refresh site as needed to reset memory.
+          </li>
+          <li>
+            Fifth, Provide videos without ads , repeat , enjoy.
+          </li>
+
+
+        </ul>
+
+      </div>
+
+      <div class="homeTabs">
+        <input type="radio" id="Bookmarks" name="homeTabs" checked>
+        <label class="tagSelector" for="Bookmarks"><b>Current Movies & TV Shows Being Broadcasted</b></label>
+        <div class="homeTab">
+          <div id="homeBookmarksDiv" class="homeDiv1">
+            <h2>Movies and TV Shows that are currently provided to a person through the service
+              from you</h2>
+            <div class="tabcontainer">
+                <h3 class="homeH3T">Tv Shows</h3>
+                  <div id="bookmarkContainer" class="containerofCardsHome">
+                    <ul id="bookmarklist" class="cards">
+                    </ul>
+                  </div>
+                  <h3 class="homeH3M">Movies</h3>
+                  <div id="bookmarkMovieContainer" class="containerofCardsHome">
+                    <ul id="moviebookmarklist" class="cards">
+                    </ul>
+                  </div>
+              <!---<div
+                style="background-color:#1e1e1e;margin-top:0rem;border:20px solid;border-color: #292929;height:600px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
+                <ul id="activeFilesList" class="homeList" style="font-weight: 150; font-size: 125%;">
+                </ul>
+              </div>--->
+            </div>
+          </div>
+        </div>
+
+
+        <input type="radio" id="WatchHistory01" name="homeTabs">
+        <label class="tagSelector" for="WatchHistory01"><b>Movies and TV Shows You Can Provide</b></label>
+        <div class="homeTab">
+          <div id="homeWatchDiv" class="homeDiv1">
+            <h2>Your Movies and TV Shows you have setup to provide already if person requests</h2>
+            <div class="tabcontainer">
+              <h3 class="homeH3T">Tv Shows</h3>
+                  <div id="bookmarkContainer" class="containerofCardsHome">
+                    <ul id="bookmarklist2" class="cards">
+                    </ul>
+                  </div>
+                  <h3 class="homeH3M">Movies</h3>
+                  <div id="bookmarkMovieContainer" class="containerofCardsHome">
+                    <ul id="moviebookmarklist2" class="cards">
+                    </ul>
+                  </div>
+              <!---<div
+                style="background-color:#1e1e1e;margin-top:0rem;border:20px solid;border-color: #292929;height:600px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
+                <ul id="pendingFilesList" class="homeList" style="font-weight: 150; font-size: 125%;">
+                </ul>
+              </div> --->
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+    <!-- End Of Home Tab --->
+
+    <!-- Beginning of Manage Tab --->
+    <input type="radio" id="tababout" name="mytabs">
+    <label class="tagSelector" id="tababoutlabel" for="tababout" onclick='window.api.refresh_manage()'><b>Manage</b></label>
+    <div class="tab">
+      <h3 class="homeH3M">Choose a Option Below to manage your file paths if it disappears its because there werent any file paths so it helped clear it out your db!</h3>
+      <div id="administrationContainer" class="containerofCardsHome" style="padding-bottom:2em;">
+        <ul id="administrationList" class="cards">
+          <div class="card" id="manage-id" onclick='manageCardClicked("exampleId", "movie", this)'>Movie<img src="assets/image.png">
+            <footer>Click me to display file paths i have setup for this one</footer>
+          </div>
+          <div class="card" id="manage-id2" onclick='manageCardClicked("exampleId", "tv", this)'>TV Show<img src="assets/image.png">
+            <footer>Click me to display file paths i have setup for this one</footer>
+          </div>
+        </ul>
+      </div>
+
+      <div id="administrationContainer2" style="display:none;background-color:#1e1e1e;border:5px solid
+        black;height:600px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
+        <div id="administrationContainerTV" style="background-color:#1e1e1e;border:5px solid
+        #8128ee;height:50px;margin:1em;padding:1em;text-align:center;">
+        <label class="customSelectionDropDown" id="seasonLabel">Season:<select id="seasonSelector">
+          <option value="option1">option 1</option>
+          <option value="option2">option 2</option>
+        </select></label>
+        <label class="customSelectionDropDown" id="episodeLabel" style="margin-left:2em">Episode:<select id="episodeSelector">
+          <option value="option1">option 1</option>
+          <option value="option2">option 2</option>
+        </select></label>
+        </div>
+        <ul id="manageList" class="homeList" style="font-weight: 150; font-size: 125%;">
+          <li>/This/Will/BE/File/Path/example.mp4 <button onclick='removePath("/This/Will/BE/File/Path/example.mp4")'>remove</button></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End of Manage Tab --->
+    <!-- 
+     Console TAB BEGIN////////////////////////////////////////////////////
+    
+    -->
+
+    <!-- Beginning of Console Tab-->
+    <input type="radio" id="tabchannels" name="mytabs">
+    <label class="tagSelector" for="tabchannels" id="tabchannelslabel"><b>Console</b></label>
+    <div class="tab">
+      <h2 class="mainTitle">Console</h2>
+      <!--   -->
+      <div class="tabcontainer">
+        <section>
+          <h2 class="mainTitleseasons">In Beta </h2>
+
+          <div
+            style="background-color:#1e1e1e;border:5px solid black;height:600px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
+            <ul id="consoleList" class="homeList" style="font-weight: 150; font-size: 125%;">
+            </ul>
+          </div>
+          <p>We done said it was in beta please dont ask again!</p>
+        </section>
+      </div>
+      <!-- no div -->
+    </div>
+    <!-- End of Console Tab-->
+    <!-- 
+    MOVIES TAB BEGIN////////////////////////////////////////////////////
+    
+    -->
+    <!-- Beginning of Movies Tab --->
+    <input type="radio" id="tabmovies" name="mytabs">
+    <label class="tagSelector" for="tabmovies" id="tabmovieslabel"><b>Movies</b></label>
+    <div class="tab">
+      <h2 class="mainTitle">Movies</h2>
+      <div class="tabcontainer" id="MovieListContainer">
+
+
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv2">
+            <h3 class="cardContainerh3">Most Popular</h3>
+            <p><input type="checkbox" id="MostPopularMoviesMinimize" onclick="minimize(20, this)"></input></p>
+            <p tag="c">Minimize</p>
+            <p><input type="checkbox" id="MostPopularMoviesshowAll" onclick="tvshowAll(21, this)"></input></p>
+            <p tag="c">Show All</p>
+          </div>
+
+          <div class="containerofCards">
+            <ul id="popularmovielist" class="cards">
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv02">
+            <h3 class="cardContainerh3">Top IMDB</h3>
+            <p><input type="checkbox" id="IMDBTopMoviesMinimize" onclick="minimize(21, this)"></input></p>
+            <p tag="c">Minimize</p>
+            <p><input type="checkbox" id="IMDBTopMoviesshowAll" onclick="tvshowAll(20, this)"></input></p>
+            <p tag="c">Show All</p>
+          </div>
+          <div class="containerofCards">
+            <ul id="IMDBTopmovielist" class="cards">
+            </ul>
+          </div>
+        </div>
+
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv2">
+            <h3 class="cardContainerh3">Newest</h3>
+            <p><input type="checkbox" id="NewestMoviesMinimize" onclick="minimize(22, this)"></input></p>
+            <p tag="c">Minimize</p>
+            <p><input type="checkbox" id="NewestMoviesshowAll" onclick="tvshowAll(22, this)"></input></p>
+            <p tag="c">Show All</p>
+          </div>
+          <div class="containerofCards">
+            <ul id="newestmovielist" class="cards">
+              <li id="movieLisst"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv02">
+            <h3 class="cardContainerh3">Stoner Collection</h3>
+            <p><input type="checkbox" id="StonerMoviesMinimize" onclick="minimize(23, this)"></input></p>
+            <p tag="c">Minimize</p>
+          </div>
+          <div class="containerofCards">
+            <ul id="stonermovielist" class="cards">
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <!-- End of Movies Tab --
+    --------------------------------------------->
+
+
+    <!-- Tv Shows --->
+    <!-- 
+     TV SHOWS TAB BEGIN////////////////////////////////////////////////////
+    
+    -->
+
+    <input type="radio" id="tabtvshows" name="mytabs">
+    <label class="tagSelector" for="tabtvshows" id="tabtvlabel"><b>TV Shows</b></label>
+    <div class="tab">
+      <h2 class="mainTitle">TV Shows</h2>
+      <div class="tabcontainer" id="TVListContainer">
+        <!-- Most Popular Container Beginning --->
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv2">
+            <h3 class="cardContainerh3">Most Popular</h3>
+            <p><input type="checkbox" id="MostPopularTVMinimize"></input></p>
+            <p tag="c">Minimize</p>
+            <p><input type="checkbox" id="MostPopularTVshowAll" onclick="tvshowAll(3, this)"></input></p>
+            <p tag="c">Show All</p>
+          </div>
+          <!-- The Actual container list below that gets objects filled into it is the populartvlist ul object below V--->
+          <div class="containerofCards">
+            <ul id="populartvlist" class="cards">
+            </ul>
+          </div>
+        </div>
+        <!--- Most Popular Container End --->
+
+
+
+        <!--- Top IMDB Container! --->
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv02">
+            <h3 class="cardContainerh3">Top IMDB</h3>
+            <p><input type="checkbox" id="IMDBTopTVMinimize"></input></p>
+            <p tag="c">Minimize</p>
+            <p><input type="checkbox" id="IMDBTopTVshowAll" onclick="tvshowAll(1, this)"></input></p>
+            <p tag="c">Show All</p>
+          </div>
+          <div class="containerofCards">
+            <ul id="IMDBToptvlist" class="cards">
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv2">
+            <h3 class="cardContainerh3">Newest</h3>
+            <p><input type="checkbox" id="NewestTVMinimize"></input></p>
+            <p tag="c">Minimize</p>
+            <p><input type="checkbox" id="NewestTVshowAll" onclick="tvshowAll(2, this)"></input></p>
+            <p tag="c">Show All</p>
+          </div>
+          <div class="containerofCards">
+            <ul id="newesttvlist" class="cards">
+            </ul>
+          </div>
+        </div>
+
+        <div class="cardContainerDiv1">
+          <div class="cardContainerDiv02">
+            <h3 class="cardContainerh3">Stoner Flixs</h3>
+            <p><input type="checkbox" id="StonerTVMinimize" style="padding-bottom:0rem;"></input></p>
+            <p tag="c">Minimize</p>
+          </div>
+          <div class="containerofCards">
+            <ul id="stonertvlist" class="cards">
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!--- End of TV Shows Tab --->
+    <!-- 
+    BEGINNING/////////////////////////////////////////////////////
+    OF SEARCH TAB ////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+    -->
+
+    <!-- Beginning of The Search Tab -->
+    <input type="radio" id="tabsearch" name="mytabs">
+    <label class="tagSelector" for="tabsearch" id="tabsearchlabel"><b>Search</b></label>
+    <div class="tab">
+      <h2 class="mainTitle">Search For A Movie or TV Show</h2>
+      <div name="SearchContainer" class="containerofCards2">
+        <h1 class="mainTitleseasons">Search</h1>
+        <div class="cards5">
+          <input type="search" id="searchbox"></input>
+        </div>
+
+      </div>
+
+      <div class="containerofCards">
+        <ul id="searchlist" class="cards">
+        </ul>
+      </div>
+
+      <div name="pagescontainer" class="containerofCards2">
+        <h1 class="mainTitleseasons">Pages</h1>
+        <div id="pagelist" name="pageslist" class="cards2">
+        </div>
+      </div>
+    </div>
+    <!-- END of The Search Tab -->
+
+
+
+    <!-- Beginning of The Add File Tab -->
+    <input type="radio" id="tabwatch" name="mytabs">
+    <label class="tagSelector" for="tabwatch" id="tabwatchlabel"><b>Upload</b></label>
+
+
+    <div class="tab">
+      <h2 class="mainTitle">Upload Video Files</h2>
+      <p class="footerClass">Just Drag and drop the video here after selecting the quality and if its tv show select
+        season and episode</p>
+      <!-- mkv These will be how we will display video files provided by our decentralized setup!
+        <video width="320" height="240" controls src="assets/animation.mkv"></video>
+        <-- mp4
+        <video width="320" height="240" controls>
+          <source src="assets/animation.mp4" type="video/mp4" />
+        </video> -->
+      <div id="watchMovieContainer">
+        <!-- <iframe sandbox="" id="watchMoviePlayer" class="videoplayer" width="90%" height="800px" src="" frameborder="0"
+          allowfullscreen allow="encrypted-media; media; autoplay" style="display: none;"></iframe> --->
+
+      </div>
+      <div id="watchTvContainer">
+
+        <!--- <iframe
+          sandbox="allow-forms allow-modals allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"
+          id="watchTvPlayer" class="videoplayer" scrolling="no" width="90%" height="800px" src="" frameborder="0"
+          allowfullscreen allow="encrypted-media; media; autoplay"></iframe>--->
+      </div>
+
+
+      <div id="detailpage">
+        <div id='detailContainer' class="containerofCards2" style="background: #464652;">
+          <div class="border2">
+            <h2 id="detailType" class="mainTitleDetails">Tv Show</h2>
+            <h2 id="detailName" class="mainTitleDetails">Title:</h2>
+          </div>
+
+          <div class="border2">
+            <h2 class="mainTitleDetails">Quality</h2>
+            <ul id="listofqualitys" class="cards2"
+              style="padding-top:.25rem;margin-top: .25rem;padding-bottom:0rem;margin-bottom:0rem">
+              <div class="card2" name="quality" onclick="updateQuality(0)" style='font-size: 1.2rem;'>CAM</div>
+              <div class="card2" name="quality" onclick="updateQuality(1)">SD</div>
+              <div class="card2" name="quality" onclick="updateQuality(2)">HD</div>
+            </ul>
+          </div>
+
+          <div id="seasoncontainer" class="border2">
+            <h2 class="mainTitleDetails">Seasons</h2>
+            <ul id="listofseasons" class="cards2" style="padding-bottom:0rem;margin-bottom:0rem">
+              <div class="card2">Season 1</div>
+            </ul>
+          </div>
+
+          <div id="episodecontainer" class="border2">
+            <h2 class="mainTitleDetails">Episodes</h2>
+            <div id="listofepisodes" class="cards2" style="padding-bottom:0rem;margin-bottom:0rem">
+              <div class="card2">Episode 1</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p>this Output Logs below will display results of what
+        happens!</p>
+
+      <div class="border2" style="background-color: #292929;">
+        <h2 class="mainTitleseasons">Upload File Logs</h2>
+        <div
+          style="background-color:#1e1e1e;margin-top:0rem;width:100%;height:600px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
+          <ul id="activeFilesList" class="homeList" style="font-weight: 150; font-size: 125%;">
+          </ul>
+        </div>
+      </div>
+
+      <div id="recommendedcontainer" class="containerofCards2">
+        <h2 class="mainTitleseasons">Recommended</h2>
+        <ul id="listofrecommended" class="cards">
+        </ul>
+      </div>
+
+      <section id="suggestedcontainer" class="containerofCards2">
+        <h2 class="mainTitleseasons">Similar</h2>
+        <ul id="listofsuggested" class="cards">
+        </ul>
+      </section>
+
+    </div>
+    <!-- END of The Add File Tab -->
+
+  </div>
+  <strong id="counter">0</strong>
+</body>
+
+
+<footer>
+  <p class="footerClass footerClassTop"> This website does not host any of the files listed or previewed or viewied on
+    our site. So we
+    are not liable for any copyright files please reach out to the file providers if you have any issues!</p>
+
+
+
+
+  <img class="footerClassImg" src="assets/footers/banner.png">
+  <p class="footerClass">
+  <div class="footerTitle">&copy; &reg;2024 DBlockbuster
+    <div> <a href="mailto:john1234brown23@gmail.com?subject=ContactatStreamPal&amp;body=Message from StreamPal site. : "
+        style="color:rgba(159, 71, 241, 0.897)  ">Contact</a>
+    </div>
+
+</footer>
+
+</html>
