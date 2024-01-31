@@ -1,5 +1,5 @@
 # DBlockbuster-Electron-App
-- This is a Electron Application Which utilizes a local Sqlite DB stored under your home folder in a directory such as DBlockbuster/ElectronApp to store paths of your movies when you drag and drop them into it
+- This is a Electron Application Which utilizes a local Sqlite DB stored under your home folder in a directory such as DBlockbuster/ElectronApp/database.sqlite3 to store paths of your movies when you drag and drop them into it
 - Serves them publicly over a /video and /videoplayer endpoint with a randomly generated subdomain from try.cloudflare.com
 - Connects to DBlockbuster's gateway server so it can build a database of what you are providing
 
