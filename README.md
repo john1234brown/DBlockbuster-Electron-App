@@ -22,4 +22,4 @@
 ### This utilizes a custom made version of cloudflared node module to be compatabile with electron applications!
 - The original cloudflared node module that was modified can be found here!
 https://github.com/JacobLinCool/node-cloudflared
-- Which now he has responded to my issue I posted he will be releasing his own fix using a process environment variable to set the bin path to include easier compatibility for electron apps but for the mean time this is another solution 😉 
+- Which now he has responded and released the fix to it where you can specify the binary location utilizing process.env variable to Override the binary path location so you can still use his module now in electron apps
