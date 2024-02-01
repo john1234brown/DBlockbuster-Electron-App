@@ -22,4 +22,10 @@
 ### This utilizes a custom made version of cloudflared node module to be compatabile with electron applications!
 - The original cloudflared node module that was modified can be found here!
 https://github.com/JacobLinCool/node-cloudflared
-- Which now he has responded and released the fix to it where you can specify the binary location utilizing process.env.CLOUDFLARED_BIN variable to Override the binary path location so you can still use his module now in electron apps
+- Which now he has responded and released the fix to it where you can specify the binary location utilizing process.env.CLOUDFLARED_BIN variable to Override the binary path location so you can still use his module now in electron apps please feel free to donate to him as well!
+### Electron Builder
+- This uses electron builder by https://github.com/electron-userland/electron-builder to build the executable runnable application please feel free to donate to them as well!
+### Electron
+- This uses electron which is free and open source project please feel free to donate to them as well!
+### NodeJs
+- This application is made in NodeJs
