@@ -15,7 +15,8 @@
 # The video endpointHas the same request query parameters
 - but you need to request this endpoint with headers that include range basically use this endpoint for if you have a website that has a video element in it then you would set its src to this video endpoint using the proper query parameters for that specific film!
 
-
+# How it serves files publicly
+![Untitled-2024-02-02-2241-Cropped](https://github.com/john1234brown/DBlockbuster-Electron-App/assets/8825800/0146e6af-9d26-41de-ab42-aa60da75c79e)
 
 # Credits
 
