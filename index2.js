@@ -92,7 +92,27 @@ var httpserver;
 var p2pRunning = false;
 const getmac = require('getmac');
 const express = require("express");
+const rateLimit = require('express-rate-limit');
 const app = express();
+
+// Define your rate limiter
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 30, // limit each IP to 100 requests per windowMs
+  skip: (req, res) => {
+    // Skip rate limiting for localhost requests or customize as needed
+    //return req.ip === '127.0.0.1';
+
+  },
+  keyGenerator: (req) => {
+    // Use CF-Connecting-IP header as the key for rate limiting
+    return req.headers['cf-connecting-ip'] || req.headers['x-forwarded-for'] || req.ip;
+  },
+});
+
+// Apply the rate limiter to all requests
+app.use(limiter);
+
 const { Notification } = require('electron');
 const http = require("node:http");
 const helmet = require("helmet");
