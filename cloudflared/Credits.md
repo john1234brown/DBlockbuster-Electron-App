@@ -1,4 +1,6 @@
 # These files under this folder all are from JacobLinCool
+#  https://github.com/JacobLinCool
+#  https://github.com/JacobLinCool/node-cloudflared
 # I do not take any credit for this work i am only using public tool and giving credits where credit is due!
 # constants.js, tunnel.js, regex.js, LICENSE, README.md
 # 
