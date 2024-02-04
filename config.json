@@ -3,9 +3,6 @@
   "providerUsername": "Theres-No-Way-Back-Now",
   "websocket": false,
   "websocket_gateway": "ws://localhost:8443",
-  "websocket_localVideoRelay": false,
-  "websocket_localVideoPort": 2096,
-  "maxBroadcastThreads": 5,
   "maximumAmountOfFilesAndFoldersToSearchThroughOnDragAndDrops": 20
 }
  

@@ -137,7 +137,6 @@ This is our main function responsible for starting everything in the proper orde
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 */
 function startStopP2P() {
-  if (configjson.websocket){
     if (p2pRunning){
       if (eventsWebsocket){
         eventsWebsocket.close();
@@ -149,12 +148,6 @@ function startStopP2P() {
       retriesTunnel=0;
       startP2PService();
     }
-  }else{
-    const test = new Notification();
-    test.title = "Configuration Error";
-    test.body = "You need to update your config.json file located at your Home Folder inside the DBlockbuster Folder and make sure the option websocket is set to true!";
-    test.show();
-  }
 }
 
 async function startP2PService (){
@@ -177,6 +170,10 @@ async function startP2PService (){
     //Show the url
     console.log("LINK:", await url);
     config.domain = (await url).toString().replace(new RegExp('https://', 'g'), '');
+    const test = new Notification();
+    test.title = "CloudFlare Tunnel Connected";
+    test.body = "Cloudflare Tunnel has been connected your local express server is publicly accessible through it!";
+    test.show();
     console.log('Your domain is:', config.domain);
     console.log('homeDirectory', homeDirectory);
     try {
@@ -231,7 +228,9 @@ async function startP2PService (){
       console.log("listening on ", 2097, "using regular HTTP NON SSL", "But we are serving through Cloudflare on port 443 through https!");
     });
     httpserver = server;
+    if (configjson.websocket === true){
     startGateway();
+    }
 }
 ////
 ////
