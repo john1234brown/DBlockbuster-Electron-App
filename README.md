@@ -18,6 +18,11 @@
 # How it serves files publicly
 ![Untitled-2024-02-02-2241-Cropped](https://github.com/john1234brown/DBlockbuster-Electron-App/assets/8825800/0146e6af-9d26-41de-ab42-aa60da75c79e)
 
+# Screenshots
+
+# Gifs
+
+
 # Credits
 
 ### This utilizes a custom made version of cloudflared node module to be compatabile with electron applications!
