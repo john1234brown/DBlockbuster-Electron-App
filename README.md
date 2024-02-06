@@ -29,6 +29,17 @@
 - The original cloudflared node module that was modified can be found here!
 https://github.com/JacobLinCool/node-cloudflared
 - Which now he has responded and released the fix to it where you can specify the binary location utilizing process.env.CLOUDFLARED_BIN variable to Override the binary path location so you can still use his module now in electron apps please feel free to donate to him as well!
+
+### Vampeyer
+- He helped me make streampal will teaching me the basics of htmls and css without that I wouldn't have any graphical application to work with electron at all!
+- His github can be found here https://github.com/vampeyer/
+
+### NullPixels
+- He originally got me a computer years ago and got me into programming without him i wouldn't be here today!
+- HIs github can be found here https://github.com/nullpixels
+
+### TMDB
+- This uses TMDB api to display movies and tvshows inside the electron application https://www.themoviedb.org/?language=en-US
 ### Electron Builder
 - This uses electron builder by https://github.com/electron-userland/electron-builder to build the executable runnable application please feel free to donate to them as well!
 ### Electron
